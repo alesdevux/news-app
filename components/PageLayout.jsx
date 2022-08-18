@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function PageLayout({ 
   children,
@@ -12,7 +13,10 @@ export default function PageLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        📰 NewsApp
+        <Link href="/">📰 NewsApp</Link>
+        <nav>
+          <Link href="/about">About</Link>
+        </nav>
       </header>
       <main>
         {children}
@@ -23,6 +27,8 @@ export default function PageLayout({
           background: #fafafa;
           padding: 20px;
           border-bottom: 1px solid #dcdcdc;
+          display: flex;
+          justify-content: space-between;
         }
       `}</style>
     </>
