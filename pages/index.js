@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import PageLayout from '../components/PageLayout'
 import styles from '../styles/Home.module.css'
 
@@ -11,7 +12,20 @@ export default function Home({ articles }) {
           <div key={index} className='article'>
             <h2>{article.title}</h2>
             <div className='article-content'>
-              <img src={article.urlToImage} alt={article.title} />
+              <div>
+                {article.urlToImage && (
+                  <Image 
+                    src={article.urlToImage} 
+                    alt={article.title}
+                    width={350}
+                    height={200}
+                    layout="responsive"
+                    layoutOptions={{
+                      cover: true,
+                    }}
+                  />
+                )}
+              </div>
               <div className='article-info'>
                 <p>{article.description}</p>
                 <Link href="/article/[id]" as={`/article/${article.id}`}>
